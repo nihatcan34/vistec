@@ -1,0 +1,68 @@
+.commit-section {
+  width: 100vw;
+  background: #f7f9fb;
+  padding: 48px 0 56px 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.commit-content {
+  margin-left: 100px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.commit-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #101223;
+  margin-bottom: 18px;
+  line-height: 1.15;
+}
+
+.commit-highlight {
+  color: #ffc62a;
+  font-weight: 700;
+}
+
+.commit-desc {
+  color: #7a7d8a;
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+  margin-top: 4px;
+  max-width: 100%;
+}
+
+.commit-btn {
+  display: inline-block;
+  background: #ffc62a;
+  color: #101223;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 12px 32px;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  margin-top: 8px;
+}
+
+.commit-btn:hover {
+  background: #ffb300;
+  color: #000;
+}
+
+@media (max-width: 900px) {
+  .commit-content {
+    margin-left: 24px;
+  }
+
+  .commit-title {
+    font-size: 1.4rem;
+  }
+
+  .commit-desc {
+    font-size: 1rem;
+  }
+}

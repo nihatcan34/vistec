@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VISTEC – Anasayfa</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" />
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/hero_vr.css">
+  <link rel="stylesheet" href="css/features.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/commit.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  
+  <div id="navbar-placeholder"></div>
+
+  <section class="hero hero-split-bg">
+    <div class="hero-split-content">
+      <div class="hero-left"></div>
+      <div class="hero-right">
+        <div class="hero-card hero-card-full transparent-card">
+          <div class="uc_container_left">
+            <div class="uc_container_holder">
+              <div class="uc_container_titles">
+                <div class="uc_title">Deneyiminizi İleri Düzeye Taşıyın</div>
+              </div>
+              <div class="uc_container_rest" id="swizzle-container">
+                <div class="uc_subtitle uc_container_swizzle active">1. Gelişmiş Farkındalık</div>
+                <div class="uc_subtitle uc_container_swizzle">2. Daha Hızlı Anlama</div>
+                <div class="uc_subtitle uc_container_swizzle">3. Daha İyi Kararlar</div>
+                <div class="uc_buttons">
+                  <a href="/hizmetler#ozel" class="uc_portfolio uc_btn">Özel</a>
+                  <a href="/hizmetler#kurumsal" class="uc_portfolio uc_btn">Kurumsal</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 3rem 2rem;">
+  <div class="feature" style="background: #f5f7fa; border-radius: 12px; padding: 2rem; width: 260px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+    <img src="assets/vr-icon.png" alt="VR Simülasyonları" width="80" />
+    <h3 data-key="feature_vr">VR Simülasyonları</h3>
+    <p data-key="feature_vr_desc">Gerçekçi senaryolarla eğitimde maksimum etki sağlayan sanal gerçeklik uygulamaları.</p>
+  </div>
+  <div class="feature" style="background: #f5f7fa; border-radius: 12px; padding: 2rem; width: 260px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+    <img src="assets/ai-icon.png" alt="Yapay Zeka Çözümleri" width="80" />
+    <h3 data-key="feature_ai">Yapay Zeka Çözümleri</h3>
+    <p data-key="feature_ai_desc">Karmaşık verileri analiz edip karar destek sistemlerine entegre edilen akıllı çözümler.</p>
+  </div>
+  <div class="feature" style="background: #f5f7fa; border-radius: 12px; padding: 2rem; width: 260px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+    <img src="assets/drone-icon.png" alt="Özelleştirilebilir Drone" width="80" />
+    <h3 data-key="feature_drone">Özelleştirilebilir Drone</h3>
+    <p data-key="feature_drone_desc">Görev odaklı çözümler sunan, kullanıcı ihtiyaçlarına göre yapılandırılabilir drone sistemleri.</p>
+  </div>
+  <div class="feature" style="background: #f5f7fa; border-radius: 12px; padding: 2rem; width: 260px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+    <img src="assets/consulting-icon.png" alt="Danışmanlık" width="80" />
+    <h3 data-key="feature_consulting">Danışmanlık</h3>
+    <p data-key="feature_consulting_desc">Savunma, sağlık ve bireysel alanlarda teknolojiye dayalı stratejik danışmanlık hizmeti.</p>
+  </div>
+</section>
+
+<section class="commit-section">
+  <div class="commit-content">
+    <h2 class="commit-title">
+      <span class="commit-highlight">Kararlıyız</span> 
+      <span>– bizi koruyanların kritik görevlerinde başarılı olmalarına yardımcı olmaya</span>
+    </h2>
+    <div class="commit-desc">
+      Yılların deneyimiyle; algılama, sürükleyici teknoloji ve veri alanlarında sunduğumuz çözümlerle bilişsel yetenekleri artırıyoruz.
+    </div>
+    <a href="/misyonumuz" class="commit-btn">Misyonumuzu öğrenin</a>
+  </div>
+</section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/js/include.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const swizzles = document.querySelectorAll('.uc_container_swizzle');
+      let activeIndex = 1;
+      setInterval(() => {
+        swizzles.forEach((el, idx) => {
+          el.classList.toggle('active', idx === activeIndex);
+        });
+        activeIndex = (activeIndex + 1) % swizzles.length;
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

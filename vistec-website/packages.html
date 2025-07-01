@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VISTEC – Paketler</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="assets/logo.png" alt="VISTEC Logo" height="40" />
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" data-key="nav_home">Anasayfa</a></li>
+        <li><a href="packages.html" data-key="nav_packages">Paketler</a></li>
+        <li><a href="projects.html" data-key="nav_projects">Projeler</a></li>
+        <li><a href="contact.html" data-key="nav_contact">İletişim</a></li>
+      </ul>
+      <select id="language-switcher">
+        <option value="tr">TR</option>
+        <option value="en">EN</option>
+      </select>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 data-key="nav_packages">Ürün Paketlerimiz</h1>
+      <p data-key="packages_intro">Kurumsal ve bireysel ihtiyaçlara göre şekillendirilmiş çözümler.</p>
+    </div>
+  </section>
+
+  <section class="features" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 3rem 2rem;">
+    <div class="feature" style="background: #f5f7fa; border-radius: 12px; padding: 2rem; width: 280px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+      <h3 data-key="pkg_vr">VR Eğitim Paketi</h3>
+      <p data-key="pkg_vr_desc">Askeri ve güvenlik alanlarında kullanılmak üzere VR tabanlı senaryo paketleri.</p>
+    </div>
+    <div class="feature" style="background: #f5f7fa; border-radius: 12px; padding: 2rem; width: 280px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+      <h3 data-key="pkg_ai">Yapay Zeka Danışmanlığı</h3>
+      <p data-key="pkg_ai_desc">Sağlık, savunma ve veri analitiği alanlarında özel yapay zeka çözümleri.</p>
+    </div>
+    <div class="feature" style="background: #f5f7fa; border-radius: 12px; padding: 2rem; width: 280px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+      <h3 data-key="pkg_drone">Drone Sistemleri</h3>
+      <p data-key="pkg_drone_desc">Görev odaklı, modüler drone sistemleri ve kontrol arayüzü.</p>
+    </div>
+    <div class="feature" style="background: #f5f7fa; border-radius: 12px; padding: 2rem; width: 280px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+      <h3 data-key="pkg_consult">Teknoloji Danışmanlığı</h3>
+      <p data-key="pkg_consult_desc">Kurumlara özel teknolojik strateji, eğitim ve kurulum destekleri.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p data-key="footer_text">&copy; 2025 VISTEC Teknoloji. Tüm hakları saklıdır.</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VcombaTac – VR Taktik Eğitim</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #0d0d0d; /* Ana arka plan siyah */
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* HERO */
+    .hero-vcomba {
+      background: #0d0d0d;
+      color: #fff;
+      width: 100vw;
+      min-height: 80vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px 60px 20px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-vcomba::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .hero-vcomba .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .hero-vcomba h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero-vcomba p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-btn {
+      padding: 0.8rem 2rem;
+      background: #ff7f11;
+      color: #101223;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .cta-btn:hover {
+      background: #ffb300;
+    }
+
+    /* SLIDER - BEYAZ BÖLÜM */
+    .slider-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 4rem 2rem;
+      background: #000000;
+      color: #101223;
+    }
+
+    .slider {
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      width: 100%;
+      max-width: 80%;
+      margin: 0 auto;
+    }
+
+    .slider img {
+      width: 100%;
+      max-width: 560px;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      scroll-snap-align: center;
+      flex-shrink: 0;
+    }
+
+    .slider-description {
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .slider-description h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .slider-description p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    /* TEKNİK ÖZELLİKLER - SİYAH BÖLÜM */
+    .specs-section {
+      background: #ffffff;
+      color: #fff;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .specs-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2.2rem;
+      color: #ffc62a;
+    }
+
+    .specs-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      align-items: stretch;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .spec-item {
+      background: #181818;
+      padding: 2rem 1.2rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+      flex: 1 1 260px;
+      min-width: 240px;
+      max-width: 320px;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.18s, transform 0.18s;
+      color: #fff;
+    }
+
+    .spec-item:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      transform: translateY(-6px) scale(1.03);
+    }
+
+    .spec-item h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.7rem;
+      color: #ff7f11;
+      font-weight: 700;
+    }
+
+    .spec-item p {
+      font-size: 1.02rem;
+      color: #eee;
+      line-height: 1.6;
+    }
+
+    /* PAKETLER - BEYAZ BÖLÜM */
+    .package-details {
+      background: #000000;
+      color: #101223;
+      padding: 4rem 2rem;
+    }
+
+    .package-details h2 {
+      color: #ffc62a;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .package-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .package-box {
+      background-color: #f7f9fb;
+      color: #101223;
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 720px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .package-box img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .package-box ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .package-box li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    /* NEDEN TACTSIM - SİYAH BÖLÜM */
+    .features-section {
+      background: #ffffff;
+      color: #fff;
+      padding: 4rem 2rem 3rem 2rem;
+    }
+
+    .features-title {
+      text-align: center;
+      color: #ffc62a;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      letter-spacing: 1px;
+    }
+
+    .features-grid {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+    .feature-box {
+      background-color: #181818;
+      color: #fff;
+      border-radius: 20px;
+      padding: 2.2rem 1.5rem;
+      width: 100%;
+      max-width: 370px;
+      min-width: 320px;
+      min-height: 410px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.18s, box-shadow 0.18s;
+      flex: 1 1 340px;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.65);
+    }
+
+    .feature-box img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-box h3 {
+      font-size: 1.35rem;
+      margin: 1.2rem 0 0.7rem;
+      color: #ff7f11;
+      font-weight: 700;
+    }
+
+    .feature-box p {
+      color: #ccc;
+      font-size: 1.08rem;
+      line-height: 1.6;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero-vcomba h1 {
+        font-size: 2rem;
+      }
+
+      .hero-vcomba p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 1300px) {
+      .features-grid {
+        gap: 1.2rem;
+      }
+      .feature-box {
+        max-width: 98vw;
+        min-width: 280px;
+        min-height: 320px;
+        padding: 1.2rem 0.7rem;
+      }
+      .feature-box img {
+        height: 180px;
+      }
+    }
+    @media (max-width: 900px) {
+      .features-grid {
+        flex-wrap: wrap;
+        gap: 1.2rem;
+      }
+      .feature-box {
+        max-width: 98vw;
+        min-width: 0;
+        min-height: 220px;
+        padding: 1rem 0.5rem;
+      }
+      .feature-box img {
+        height: 140px;
+      }
+    }
+
+    /* GENEL BAŞLIK STİLLERİ */
+    h1, h2, h3, h4, h5, h6 {
+      color: #ff7f11 !important;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .features-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      letter-spacing: 1px;
+    }
+
+    .scenario-section {
+      padding: 4rem 2rem;
+      background-color: #000000;
+      text-align: center;
+    }
+
+    .scenario-section h2 {
+      font-size: 2.2rem;
+      color: #ff7f11;
+      margin-bottom: 3rem;
+    }
+
+    .scenario-container {
+      display: flex;
+      flex-wrap: nowrap;         /* Kartlar yan yana sıralanır */
+      justify-content: center;
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow-x: auto;          /* Sığmazsa yatay kaydırma */
+    }
+
+    .scenario-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      max-width: 370px;
+      min-width: 300px;
+      width: 100%;
+      min-height: 410px;
+      padding: 2rem 1.2rem 1.5rem 1.2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.18s, transform 0.18s;
+      flex: 0 0 340px;           /* Kart genişliği sabitlenir */
+    }
+
+    @media (max-width: 900px) {
+      .scenario-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+        overflow-x: unset;
+      }
+      .scenario-card {
+        max-width: 98vw;
+        min-width: 0;
+        min-height: 260px;
+        padding: 1.2rem 0.7rem;
+        flex: 1 1 100%;
+      }
+      .scenario-card img {
+        height: 140px;
+      }
+    }
+  </style>
+    <!-- ...existing code... -->
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+  <section class="hero-vcomba">
+    <video class="hero-bg-video" autoplay muted loop playsinline>
+      <source src="assets/vcomVid.mp4" type="video/mp4" />
+      Tarayıcınız video etiketini desteklemiyor.
+    </video>
+    <div class="hero-content">
+      <h1>VcombaTac ile Gerçek Taktik Eğitim</h1>
+      <p>VCombTac, en son teknolojileri kullanarak silah manipülasyonlarını gerçekçi bir şekilde simüle etmek için tasarlanmıştır. Polis ve özel güvenlik için güvenli ve profesyonel ateşli silah  eğitimi sağlar.</p>
+      <p>VCombaTac, kolluk kuvvetleri eğitim profesyonellerinin deneyimlerinden doğmuştur ve alandaki en gerçekçi eğitim sistemi olmayı hedeflemektedir.</p>
+      <a href="#slider" class="cta-btn">Detayları Gör</a>
+    </div>
+  </section>
+
+  <section id="slider" class="slider-section">
+    <div class="slider-description">
+      <h2>Uygulama İçi Görseller</h2>
+      <p>VcombaTac sisteminin gerçek VR içi görüntüleriyle nasıl çalıştığını inceleyin. Taktik kararlar, görev paylaşımı ve ekip çalışması bir arada.</p>
+    </div>
+    <div class="slider">
+      <img src="assets/project-dronefleet.jpg" alt="Senaryo Başlangıcı">
+      <img src="assets/project-dronefleet.jpg" alt="Taktik Hareket">
+      <img src="assets/project-dronefleet.jpg" alt="Düşman Teması">
+    </div>
+  </section>
+
+  <section class="specs-section">
+    <h2>Teknik Özellikler</h2>
+    <div class="specs-grid">
+      <div class="spec-item">
+        <h3>Platform</h3>
+        <p>Meta Quest 3 ve üstü destekli bağımsız VR gözlükler</p>
+      </div>
+      <div class="spec-item">
+        <h3>Çoklu Oyuncu</h3>
+        <p>Aynı ortamda 2-8 kullanıcı senkronize eğitim</p>
+      </div>
+      <div class="spec-item">
+        <h3>Yapay Zeka</h3>
+        <p>Gerçek zamanlı AI destekli düşman ve senaryo analizi</p>
+      </div>
+      <div class="spec-item">
+        <h3>Senaryo Editörü</h3>
+        <p>Görevleri ve ortamları sürükle-bırak arayüzle özelleştirin</p>
+      </div>
+      <div class="spec-item">
+        <h3>Geribildirim</h3>
+        <p>Raporlama, skor kartı, davranış analizi</p>
+      </div>
+      <div class="spec-item">
+        <h3>Donanım Entegrasyonu</h3>
+        <p>Gerçek silah replikaları ve sensör entegrasyonu</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="package-details">
+    <h2>Paket Seçenekleri</h2>
+        <div class="package-grid">
+        <div class="package-box">
+            <h3>Standart Paket: VcombaTac G17</h3>
+            <img src="assets/singepack.avif" alt="Standart Paket" />
+            <h3>Paket İçeriği:</h3>
+        <ul>
+        <li>Glock 17 modelinin 1:1 oranında modifiye replikası</li>
+        <li>Üst düzey kablosuz VR başlık</li>
+        <li>Kontrolcüye monte edilebilir sensör birimi</li>
+        <li>Yedek şarjör</li>
+        </ul>
+
+        <h3>Silaha Dair Manipülasyonlar:</h3>
+        <ul>
+        <li>Tetikte parmak algılama</li>
+        <li>Sürgü manipülasyonu</li>
+        <li>Şarjör değişimi</li>
+        <li>Fiziksel geri tepme</li>
+        <li>Küçük arızalar</li>
+        <li>Stove pipe simülasyonu</li>
+        </ul>
+
+        <h3>Ateşli Eğitim Modülü:</h3>
+        <ul>
+        <li>TAP/RACK</li>
+        <li>Taktiksel silahsızlandırma</li>
+        <li>High Ready / Low Ready / SUL</li>
+        <li>IWOC</li>
+        <li>Acil şarjör değişimi</li>
+        <li>Taktiksel şarjör değişimi</li>
+        <li>Siper kullanımı (paralaks, mesafe ve etkinlik)</li>
+        </ul>
+
+        <h3>Eğitim Özellikleri:</h3>
+        <ul>
+        <li>Sanal eğitmen aracılığıyla manipülasyon öğrenimi</li>
+        <li>Gerçekçi temel & senaryo bazlı eğitim ve geribildirim</li>
+        <li>Sonuçların değerlendirmesi ve fiziksel çıktısı</li>
+        </ul>
+      </div>
+
+      <div class="package-box">
+        <h3>Genişletilmiş Paket: VCombaTac FN SCAR</h3>
+        <img src="assets/multipack.avif" alt="Genişletilmiş Paket" />
+        <h4>Paket İçeriği:</h4>
+        <ul>
+            <li>SCAR-L modelinin 1:1 oranında modifiye replikası</li>
+            <li>Üst düzey kablosuz VR başlık</li>
+            <li>Kontrolcüye monte edilebilir sensör birimi</li>
+            <li>Yedek şarjör</li>
+        </ul>
+
+        <h4>Ateşli Silah Manipülasyonları:</h4>
+        <ul>
+            <li>Tetikte parmak algılama</li>
+            <li>Sürgü manipülasyonu</li>
+            <li>Şarjör değişimi</li>
+            <li>Fiziksel geri tepme</li>
+            <li>Küçük arızalar</li>
+            <li>Stove pipe simülasyonu</li>
+        </ul>
+
+        <h4>Atış Modu / Polis Kursu:</h4>
+        <ul>
+            <li>TAP/RACK</li>
+            <li>Taktiksel silahsızlandırma</li>
+            <li>High Ready / Low Ready / SUL</li>
+            <li>IWOC</li>
+            <li>Acil şarjör değişimi</li>
+            <li>Taktiksel şarjör değişimi</li>
+            <li>Siper kullanımı (paralaks, mesafe ve etkinlik)</li>
+        </ul>
+
+        <h4>Eğitim Özellikleri:</h4>
+        <ul>
+            <li>Sanal eğitmen aracılığıyla manipülasyon öğrenimi</li>
+            <li>Gerçekçi temel & senaryo bazlı eğitim ve geribildirim</li>
+            <li>Sonuçların değerlendirmesi ve fiziksel çıktısı</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+   <section class="features-section">
+  <h2 class="features-title">Neden VCombaTac?</h2>
+  <div class="features-grid">
+    <div class="feature-box">
+      <img src="assets/set.avif" alt="Compact and Mobile">
+      <h3>Kompakt ve Taşınabilir</h3>
+      <p>VCombaTac ile her yerde, risksiz ve standartlara uygun eğitim mümkün.</p>
+    </div>
+    <div class="feature-box">
+      <img src="assets/comp.avif" alt="Education Simulator">
+      <h3>Eğitim Simülatörü</h3>
+      <p>Sanallaştırılmış eğitmen ile adım adım profesyonel eğitim.</p>
+    </div>
+    <div class="feature-box">
+      <img src="assets/personel.avif" alt="Evaluation">
+      <h3>Değerlendirme</h3>
+      <p>Simülasyon sırasında tüm veriler kayıt altına alınır, objektif sonuçlar sunar.</p>
+    </div>
+  </div>
+</section>
+
+<section class="scenario-section">
+  <h2 class="features-title">Senaryo Tanıtımı</h2>
+  <div class="features-grid">
+    <div class="feature-box">
+      <img src="assets/scenario-briefing.jpg" alt="Senaryo Bilgilendirme">
+      <h3>Görev Brifingi</h3>
+      <p>Eğitime başlamadan önce kullanıcıya detaylı görev açıklaması sunulur. Hedefler, tehditler ve yol haritası net bir şekilde aktarılır.</p>
+    </div>
+    <div class="feature-box">
+      <img src="assets/scenario-action.jpg" alt="Senaryo Eylem">
+      <h3>Canlı Senaryo</h3>
+      <p>Senaryo içerisinde gerçek zamanlı düşmanlar, rehine durumları ve karar alma anları simüle edilir.</p>
+    </div>
+    <div class="feature-box">
+      <img src="assets/scenario-feedback.jpg" alt="Senaryo Değerlendirme">
+      <h3>Geribildirim ve Analiz</h3>
+      <p>Senaryo sonunda yapılan tüm hamleler analiz edilir, performans verileri kullanıcıya sunulur.</p>
+    </div>
+  </div>
+</section>
+
+<section class="scenario-list-section">
+    <h2>Eğitim Senaryoları</h2>
+    <div class="scenario-list">
+      <ul>
+        <li>Rehine Kurtarma Operasyonu</li>
+        <li>Yakın Mesafe Çatışma (CQB) Eğitimi</li>
+        <li>Devriye Görevi ve Temas Anında Müdahale</li>
+        <li>Üs Savunması ve Saldırı Simülasyonu</li>
+        <li>Konvoy Koruma ve Yol Güvenliği</li>
+        <li>Siper Kullanımı ve Alan Taraması</li>
+        <li>Gece Görevi / Termal Görüş Eğitimi</li>
+        <li>Düşman Tanımlama ve Ayırt Etme</li>
+        <li>Kaçış / Tahliye Senaryoları</li>
+        <li>Karar Alma ve Zaman Yönetimi</li>
+      </ul>
+    </div>
+  </section>
+
+<style>
+  .features-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .feature-box {
+    background-color: #181818;
+    color: #fff;
+    border-radius: 20px;
+    padding: 2.2rem 1.5rem;
+    width: 100%;
+    max-width: 370px;
+    min-width: 320px;
+    min-height: 410px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.18s, box-shadow 0.18s;
+    flex: 1 1 340px;
+  }
+  .feature-box img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+  }
+  .feature-box h3 {
+    font-size: 1.35rem;
+    margin: 1.2rem 0 0.7rem;
+    color: #ff7f11;
+    font-weight: 700;
+  }
+  .feature-box p {
+    color: #ccc;
+    font-size: 1.08rem;
+    line-height: 1.6;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 900px) {
+    .features-grid {
+      flex-direction: column;
+      gap: 1.2rem;
+      align-items: center;
+    }
+    .feature-box {
+      max-width: 98vw;
+      min-width: 0;
+      min-height: 220px;
+      padding: 1rem 0.5rem;
+    }
+    .feature-box img {
+      height: 140px;
+    }
+  }
+
+   body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    .scenario-list-section {
+      padding: 4rem 2rem;
+      background-color: #ffffff;
+      text-align: center;
+    }
+    .scenario-list-section h2 {
+      font-size: 2.2rem;
+      color: #ff7f11;
+      margin-bottom: 2rem;
+    }
+    .scenario-list {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+      color: #000000;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .scenario-list ul {
+      padding-left: 1.5rem;
+    }
+    .scenario-list li {
+      margin-bottom: 0.8rem;
+    }
+</style>
+
+<div id="footer-placeholder"></div>
+<script src="/js/include.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+.hero {
+  background: linear-gradient(rgba(13,13,13,0.7), rgba(13,13,13,0.7)), url('../images/compact.webp') center/cover no-repeat;
+  text-align: center;
+  padding: 22rem 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+.cta {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background-color: #ff7f11;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
